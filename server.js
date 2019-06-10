@@ -13,7 +13,7 @@ server.get('/', (req,res) => {
     res.status(200).json({auth: "rocks!!!"})
 })
 
-server.use('/users', userRouter);
+server.use('/api', userRouter);
 
 
 
