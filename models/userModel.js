@@ -5,17 +5,22 @@ function add(user) {
 }
 
 function findByUsername(username) {
-    return db('users').where({username}).first();
+    return db('users').where('username', username).first();
 }
 
-function find() {
+function findAll() {
     return db('users');
+}
+
+function findById(id) {
+    return db('users').where('id', id)
 }
 
 module.exports = {
     add,
     findByUsername,
-    find
+    findAll,
+    findById
 }
 
 
