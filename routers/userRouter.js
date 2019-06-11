@@ -78,7 +78,25 @@ router.post('/login', validateUserInfo, validateUser, async (req,res) => {
     }
 })
 
+/****************************************************************************/
+/*                              user logout                                 */
+/****************************************************************************/
 
+router.delete('/users', async (req,res) => {
+
+    try {
+        if (req.session) {
+            req.session.destroy();
+            res.status(200).json({message: `good bye`});
+        }
+        else {
+            res.status(401).json({errorMessage: `You were not logged in`});
+        }
+    } 
+    catch {
+        res.status(500).json({"errorMessage": "That was a problem login you out"})
+    }
+})
 /*********************************************************************************************************/
 /*                                           MIDDLEWARE                                                  */
 /******************************************************************************************************** */
